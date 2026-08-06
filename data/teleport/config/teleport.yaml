@@ -1,0 +1,31 @@
+version: v3
+teleport:
+  nodename: </DOCKER_HOSTNAME>.</your-domain.com>
+  data_dir: /var/lib/teleport
+  log:
+    output: stderr
+    severity: INFO
+    format:
+      output: text
+
+auth_service:
+  enabled: yes
+  listen_addr: 0.0.0.0:3025
+  proxy_listener_mode: multiplex
+  cluster_name: teleport.</your-domain.com>
+
+ssh_service:
+  enabled: no 
+
+proxy_service:
+  enabled: yes
+  web_listen_addr: 0.0.0.0:443
+  public_addr: teleport.</your-domain.com>:443
+
+  acme:
+    enabled: no
+
+  # Points directly to the Certbot live symlinks inside the container mount
+  https_keypairs:
+    - cert_file: /etc/teleport/certs/live/</your-domain.com>/fullchain.pem
+      key_file: /etc/teleport/certs/live/</your-domain.com>/privkey.pem
