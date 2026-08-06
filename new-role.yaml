@@ -1,0 +1,17 @@
+kind: role
+version: v5
+metadata:
+  name: </role_name>
+spec:
+  allow:
+    # Allowed OS logins when SSHing into the nodes
+    logins: ['root','ubuntu','</user1>','</user2>']
+    
+    # Restrict visibility and connection to ONLY matching node labels
+    node_labels:
+      'env': 'prod'
+      
+    # Rules for what Teleport features they can access
+    rules:
+      - resources: ['node']
+        verbs: ['list', 'read']
