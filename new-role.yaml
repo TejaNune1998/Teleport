@@ -9,7 +9,7 @@ spec:
     
     # Restrict visibility and connection to ONLY matching node labels
     node_labels:
-      'env': 'prod'
+      '</label-name>': '</label-value>'
       
     # Rules for what Teleport features they can access
     rules:
