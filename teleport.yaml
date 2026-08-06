@@ -1,0 +1,20 @@
+version: v3
+teleport:
+  nodename: </DOCKER_HOSTNAME>.</your_domaim.co>
+  data_dir: /var/lib/teleport
+  auth_token: "</TOKEN>"
+  proxy_server: teleport.</your_domaim.co>:443
+  log:
+    output: stderr
+    severity: INFO
+
+ssh_service:
+  enabled: yes
+  labels:
+    </label_name>: </value>
+
+auth_service:
+  enabled: no
+
+proxy_service:
+  enabled: no
