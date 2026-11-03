@@ -2,7 +2,7 @@ services:
   teleport:
     image: public.ecr.aws/gravitational/teleport-distroless:18.10.0
     container_name: teleport
-    network_mode: host  # Binds directly to host ports 443 and 3025
+    network_mode: host
     volumes:
       - /opt/docker_files/teleport/data/teleport/config:/etc/teleport
       - /opt/docker_files/teleport/data/teleport/data:/var/lib/teleport
@@ -10,15 +10,4 @@ services:
       - /etc/passwd:/etc/passwd:ro
       - /etc/shadow:/etc/shadow:ro
       - /etc/group:/etc/group:ro
-    restart: unless-stopped
-
-  certbot:
-    image: certbot/dns-cloudflare:latest
-    container_name: certbot-renewer
-    volumes:
-      - /opt/docker_files/teleport/data/teleport/certs:/etc/letsencrypt
-      - /opt/docker_files/teleport/data/certbot/secrets/cloudflare.ini:/cloudflare.ini:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    # Checks for renewal every 12 hours. Triggers a live reload of Teleport if renewed.
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --deploy-hook \"docker exec teleport teleport reload\"; sleep 12h & wait $${!}; done;'"
     restart: unless-stopped
