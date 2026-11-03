@@ -23,8 +23,8 @@ Instead of using passwords or long-lasting SSH keys, it puts a single "secure ga
 ## Deploying Teleport
 
 ### Prerequisites
-* A system with [[Live-Hugo/Self-Hosted_Projects/Docker_Installation|Docker]] installed.
-* [[/HomeLab-Self_Hosted_Services/DNS_Stack/DNS_With_Pihole_&_Unbound|Pi-Hole]]
+* A system with Docker installed.
+* Pi-Hole
 * A registered domain from a provider (e.g., Cloudflare)
 ---
 ### Create `cname` record for *Teleport* and *Docker Host*
