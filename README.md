@@ -49,11 +49,6 @@ git clone https://github.com/TejaNune1998/Teleport.git
 ```
 ├── data
 │   └── teleport
-│   ├── certs
-│   ├── config
-│   │   ├── certs
-│   │   └── teleport.yaml
-│   └── data
 ├── docker-compose.yml
 ├── env-access-role.yaml
 ├── logs
