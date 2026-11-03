@@ -1,3 +1,5 @@
+# Teleport : PAM Tool
+
 ## What is PAM?
 
 `Privileged Access Management`
@@ -46,7 +48,7 @@ git clone https://github.com/TejaNune1998/Teleport.git
 ----------------
 ### Directory Structure 
 
-```
+```tree
 ├── data
 │   └── teleport
 │   ├── certs
@@ -62,7 +64,7 @@ git clone https://github.com/TejaNune1998/Teleport.git
 ---
 ### Update Paths in `docker-compose.yml` file
 
-```
+```vim
     volumes:
       - /path/to/teleport/data/teleport/config:/etc/teleport
       - /path/to/teleport/data/teleport/data:/var/lib/teleport
@@ -110,7 +112,7 @@ docker run -it --rm --name certbot \
 vim renew.sh
 ```
 
-```
+```vim
 #!/bin/bash
 set -e
 ⋮
@@ -135,7 +137,7 @@ find /path/to/teleport/logs -type f -mtime +30 -exec rm -f {} +
 crontab -e
 ```
 
-```
+```crontab
 0 3 * * * /path/to/teleport/renew.sh >> /path/to/teleport/logs/renew_$(date +\%d\%b\%y\%H\%M).log 2>&1
 ```
 
@@ -186,7 +188,7 @@ docker exec -it teleport tctl users add admin --roles=editor,access --logins=</o
 
 * Update only below entries in `env-access-role.yaml` file.
 
-```
+```vim
 kind: role
 version: v5
 metadata:
@@ -239,7 +241,7 @@ Adding Label [label name | label value] --> Use Provide link to install agent on
 
 * Update only below entries in `etc-teleport.yaml` file
 
-```
+```vim
 version: v3
 teleport:
   nodename: </DOCKER_HOSTNAME>.</your_domaim.co>
