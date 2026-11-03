@@ -136,7 +136,7 @@ crontab -e
 ```
 
 ```
-0 3 * * * /path/to/teleport/renew.sh >> /path/to//teleport/logs/renew_$(date +\%d\%b\%y\%H\%M).log 2>&1
+0 3 * * * /path/to/teleport/renew.sh >> /path/to/teleport/logs/renew_$(date +\%d\%b\%y\%H\%M).log 2>&1
 ```
 
 ---
