@@ -47,19 +47,17 @@ git clone https://github.com/TejaNune1998/Teleport.git
 ### Directory Structure 
 
 ```
-/opt/docker_files/teleport/
 ├── data
-│   ├── certbot
-│   │   └── secrets
-│   │       └── cloudflare.ini
-│   └── teleport
-│       ├── config
-│       │   └── teleport.yaml
-│		├── certs
-│       └── data  
-├── new-role.yaml
-├── etc-teleport.yaml
-└── docker-compose.yml
+│   └── teleport
+│   ├── certs
+│   ├── config
+│   │   ├── certs
+│   │   └── teleport.yaml
+│   └── data
+├── docker-compose.yml
+├── env-access-role.yaml
+├── logs
+└── renew.sh
 ```
 ---
 ### Update `cloudflare.ini` file
